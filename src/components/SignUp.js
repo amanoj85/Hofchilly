@@ -1,7 +1,13 @@
 import { Button, Platform, SafeAreaView, StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Pressable, ImageBackground } from 'react-native'
-import React from 'react'
+import React , {useState} from 'react'
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [createPassword, setCreatePassword] = useState("");
+  const [signUp, setSignUp]=useState("");
+
   return(
       <>
       <View style={styles.inputView}>
@@ -36,7 +42,7 @@ const SignUp = () => {
    <Text style={styles.passwordHintText}>Password must be at least 8 charactes long including uppercase, lowercase, number and special character. Example: Ab12@9Jx</Text>
    </View>
 
-    <TouchableOpacity style={styles.loginBtn}>
+    <TouchableOpacity onPress={()=>navigation.navigate("homeScreen")} style={styles.loginBtn}>
       <Text style={styles.signupText}>SIGNUP</Text>
     </TouchableOpacity>
 

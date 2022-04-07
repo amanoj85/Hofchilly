@@ -1,7 +1,14 @@
 import { Button, Platform, SafeAreaView, StatusBar, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Pressable, ImageBackground } from 'react-native'
-import React from 'react'
+import React , {useState} from 'react'
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [logIn, setLogIN]=useState("");
+
   return(
       <>
       <View style={styles.inputView}>
@@ -27,7 +34,7 @@ const SignIn = () => {
       <Text style={styles.forgot_button}>Forgot Password?</Text>
     </TouchableOpacity>
 
-    <TouchableOpacity style={styles.loginBtn}>
+    <TouchableOpacity onPress={()=>navigation.navigate("homeScreen")} style={styles.loginBtn}>
       <Text style={styles.loginText}>LOGIN</Text>
     </TouchableOpacity>
 
